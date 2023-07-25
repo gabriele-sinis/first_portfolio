@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Your Full Stack Developer Portfolio</title>
+    <link rel="stylesheet" href="styles.css">
+
+<script>
+    // Smooth scrolling effect for navigation links
+    const navLinks = document.querySelectorAll('header a[href^="#"]');
+    navLinks.forEach(link => {
+        link.addEventListener('click', e => {
+            e.preventDefault();
+            const target = document.querySelector(link.getAttribute('href'));
+            const offsetTop = target.getBoundingClientRect().top + window.pageYOffset;
+            window.scroll({
+                top: offsetTop,
+                behavior: 'smooth'
+            });
+        });
+    });
+
+    // Form validation for the "Contact Me" section
+    const contactForm = document.getElementById('contact-form');
+    const emailInput = document.getElementById('email');
+
+    contactForm.addEventListener('submit', e => {
+        e.preventDefault();
+        const emailValue = emailInput.value.trim();
+        if (!isValidEmail(emailValue)) {
+            alert('Please enter a valid email address.');
+            emailInput.focus();
+        } else {
+            contactForm.reset();
+            alert('Your message has been sent successfully!');
+        }
+    });
+
+    function isValidEmail(email) {
+        const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+        return emailPattern.test(email);
+    }
+</script>
+
+</head>
+<body>
+    <header>
+        <h1>Gabriele Sinis</h1>
+        <p>Full Stack Developer</p>
+    </header>
+
+    <section id="about">
+        <h2>About Me</h2>
+        <p>
+            Welcome to my portfolio! I am a passionate full stack developer with experience in building web applications
+            and solving complex problems. I specialize in frontend and backend technologies to create seamless user experiences.
+        </p>
+        <!-- Add more information about yourself, skills, and experience here -->
+    </section>
+
+    <section id="projects">
+        <h2>Projects</h2>
+        <div class="project">
+            <h3>Project 1</h3>
+            <p>
+                Description of Project 1. Briefly explain what it does and what technologies you used.
+            </p>
+            <a href="https://github.com/gabriele-sinis/TeaCozy.git">View Project</a>
+        </div>
+        <div class="project">
+            <h3>Project 2</h3>
+            <p>
+                Description of Project 2. Briefly explain what it does and what technologies you used.
+            </p>
+            <a href="#">View Project</a>
+        </div>
+        <!-- Add more project sections to showcase your work -->
+    </section>
+
+    <section id="contact">
+        <h2>Contact Me</h2>
+        <form id="contact-form">
+            <p>
+                I am open to new opportunities and collaborations. Feel free to reach out to me via email or connect with me on
+                social media.
+            </p>
+            <ul>
+                <li>Email: <input type="email" id="email" required></li>
+                <li><a href="https://www.linkedin.com/in/gabriele-sinis-web-developer/">Linkedin</a></li>
+                <li><a href="https://github.com/gabriele-sinis">GitHub</a></li>
+                <!-- Add other social media links if applicable -->
+            </ul>
+            <button type="submit">Send Message</button>
+        </form>
+    </section>
+
+    <footer>
+        <p>&copy; 2023 Gabriele Sinis. All rights reserved.</p>
+    </footer>
+    
+    <!-- Add JavaScript files here if needed -->
+</body>
+</html>
